@@ -116,6 +116,7 @@
             this.ContentTextBox.Size = new System.Drawing.Size(1076, 309);
             this.ContentTextBox.TabIndex = 3;
             this.ContentTextBox.TextChanged += new System.EventHandler(this.ContentTextBox_TextChanged);
+            this.ContentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContentTextBox_KeyDown);
             // 
             // PopUpInputForm
             // 

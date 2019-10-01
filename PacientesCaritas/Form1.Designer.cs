@@ -35,7 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TabsContainer = new System.Windows.Forms.TabControl();
             this.RegisterPacientTab = new System.Windows.Forms.TabPage();
-            this.DeleteBTN = new System.Windows.Forms.Button();
+            this.ClearBTN = new System.Windows.Forms.Button();
             this.SaveBTN = new System.Windows.Forms.Button();
             this.PopUpOptionsContainer = new System.Windows.Forms.Panel();
             this.NotasBTN = new System.Windows.Forms.Button();
@@ -166,7 +166,7 @@
             // 
             // RegisterPacientTab
             // 
-            this.RegisterPacientTab.Controls.Add(this.DeleteBTN);
+            this.RegisterPacientTab.Controls.Add(this.ClearBTN);
             this.RegisterPacientTab.Controls.Add(this.SaveBTN);
             this.RegisterPacientTab.Controls.Add(this.PopUpOptionsContainer);
             this.RegisterPacientTab.Controls.Add(this.APPNPGroupBox);
@@ -181,21 +181,22 @@
             this.RegisterPacientTab.Text = "Registro";
             this.RegisterPacientTab.UseVisualStyleBackColor = true;
             // 
-            // DeleteBTN
+            // ClearBTN
             // 
-            this.DeleteBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.DeleteBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DeleteBTN.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(210)))), ((int)(((byte)(250)))));
-            this.DeleteBTN.FlatAppearance.BorderSize = 3;
-            this.DeleteBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteBTN.Font = new System.Drawing.Font("Yu Gothic UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(210)))), ((int)(((byte)(250)))));
-            this.DeleteBTN.Location = new System.Drawing.Point(489, 624);
-            this.DeleteBTN.Name = "DeleteBTN";
-            this.DeleteBTN.Size = new System.Drawing.Size(252, 57);
-            this.DeleteBTN.TabIndex = 13;
-            this.DeleteBTN.Text = "Borrar";
-            this.DeleteBTN.UseVisualStyleBackColor = false;
+            this.ClearBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.ClearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ClearBTN.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(210)))), ((int)(((byte)(250)))));
+            this.ClearBTN.FlatAppearance.BorderSize = 3;
+            this.ClearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearBTN.Font = new System.Drawing.Font("Yu Gothic UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(210)))), ((int)(((byte)(250)))));
+            this.ClearBTN.Location = new System.Drawing.Point(489, 624);
+            this.ClearBTN.Name = "ClearBTN";
+            this.ClearBTN.Size = new System.Drawing.Size(252, 57);
+            this.ClearBTN.TabIndex = 13;
+            this.ClearBTN.Text = "Borrar";
+            this.ClearBTN.UseVisualStyleBackColor = false;
+            this.ClearBTN.Click += new System.EventHandler(this.clearBTNClickHandler);
             // 
             // SaveBTN
             // 
@@ -742,7 +743,7 @@
         private System.Windows.Forms.Button AhfBTN;
         private System.Windows.Forms.Button PaiasBTN;
         private System.Windows.Forms.Button InterrogatorioBTN;
-        private System.Windows.Forms.Button DeleteBTN;
+        private System.Windows.Forms.Button ClearBTN;
         private System.Windows.Forms.Button SaveBTN;
         private System.Windows.Forms.Panel ControlsContainer;
         private System.Windows.Forms.Button MinimizeBTN;

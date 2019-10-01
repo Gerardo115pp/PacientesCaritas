@@ -38,6 +38,7 @@ namespace PacientesCaritas
             InitializeComponent();
             this.dragging = false;
             this.popups_values = new Dictionary<string, string>();
+            this.GenderComboBox.SelectedIndex = 0;
         }
 
         #region <Frontend Behavior>
@@ -78,10 +79,42 @@ namespace PacientesCaritas
 
         #endregion <Movement and controls/>
 
+        #region <Fields handlers>
+          
+        private void clearBTNClickHandler(Object sender,EventArgs e)
+        {
+            this.clearFields();
+        }
+
+        #endregion <Fields handlers>
+
 
         #endregion <Frontend Behavior/>
 
         #region <Script>
+
+        #region <Statics>
+
+        static public string sha1(string texto)
+        {
+            /*
+             * Convierte una cadena en un hash tambien de tipo cadena por c sharp es estupido y no
+             * sabe hacerlo solo.............
+             */
+            SHA1 encrypter = SHA1CryptoServiceProvider.Create();
+            DateTime right_now = DateTime.Now;
+
+            Byte[] text_in_bytes = ASCIIEncoding.Default.GetBytes(texto+right_now.ToString("dd/MM/yy--hh:mm:ffff"));
+            Byte[] hash = encrypter.ComputeHash(text_in_bytes);
+            StringBuilder cadena = new StringBuilder();
+            foreach (byte i in hash)
+            {
+                cadena.AppendFormat("{0:x2}", i);
+            }
+            return cadena.ToString();
+        }
+        
+        #endregion <Statics/>
 
         private void popUpClickedHandler(Object sender, EventArgs e)
         {
@@ -89,8 +122,11 @@ namespace PacientesCaritas
             string content = (this.popups_values.ContainsKey(btn.Text)) ? this.popups_values[btn.Text] : "";
             PopUpInputForm Popup = new PopUpInputForm(btn.Text,content);
             Popup.ShowDialog();
-            this.popups_values[btn.Text] = Popup.Content;
-            btn.BackColor = System.Drawing.Color.FromArgb(255, 200, 255, 200);
+            if(Popup.Content.Length > 1)
+            {
+                this.popups_values[btn.Text] = Popup.Content;
+                btn.BackColor = System.Drawing.Color.FromArgb(255, 200, 255, 200);
+            }
         }
 
         private Dictionary<string,string> getAllFieldValues()
@@ -101,7 +137,7 @@ namespace PacientesCaritas
             data_to_return["domicilio"] = this.AddressTextBox.Text;
             data_to_return["telephone"] = this.TelTextBox.Text;
             data_to_return["genero"] = this.GenderComboBox.SelectedItem.ToString();
-            data_to_return["puslo"] = this.PulsoTextBox.Text;
+            data_to_return["pulso"] = this.PulsoTextBox.Text;
             data_to_return["temp"] = this.TempTextBox.Text;
             data_to_return["T.A"] = this.TATextBox.Text;
             data_to_return["F.R"] = this.FRTextBox.Text;
@@ -120,27 +156,44 @@ namespace PacientesCaritas
         private void compileDatatoJson(Object sender, EventArgs e)
         {
             Dictionary<string, string> data = this.getAllFieldValues();
-            string filename = sha1(data["nombre"]);
+            string filename = Form1.sha1(data["nombre"]);
             string Datos = JsonConvert.SerializeObject(data);
             File.WriteAllText($"{filename}.json",Datos);
+            this.clearFields();
         }
 
-        public static string sha1(String texto)
+        private void resetBTNsColor()
         {
-            /*
-             * Convierte una cadena en un hash tambien de tipo cadena por c sharp es estupido y no
-             * sabe hacerlo solo.............
-             */
-            SHA1 encrypter = SHA1CryptoServiceProvider.Create();
-            Byte[] text_in_bytes = ASCIIEncoding.Default.GetBytes(texto);
-            Byte[] hash = encrypter.ComputeHash(text_in_bytes);
-            StringBuilder cadena = new StringBuilder();
-            foreach (byte i in hash)
-            {
-                cadena.AppendFormat("{0:x2}", i);
-            }
-            return cadena.ToString();
+            this.InterrogatorioBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            this.PaiasBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            this.AhfBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            this.AhfBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            this.TrBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            this.DiagnosticoBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            this.NotasBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            this.EstudiosBTN.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
         }
+
+        private void clearFields()
+        {
+            this.NamePacientTextBox.Text = "";
+            this.AgeTextbox.Text = "";
+            this.AddressTextBox.Text = "";
+            this.TelTextBox.Text = "";
+            this.GenderComboBox.SelectedIndex = 0;
+            this.PulsoTextBox.Text = "";
+            this.TempTextBox.Text = "";
+            this.TATextBox.Text = "";
+            this.FCTextBox.Text = "";
+            this.FRTextBox.Text = "";
+            this.TabaquismoTextBox.Text = "";
+            this.AlcoholismoTextBox.Text = "";
+            this.AdiccionesTextBox.Text = "";
+            this.resetBTNsColor();
+
+            this.popups_values = new Dictionary<string, string>();
+        }
+
 
         #endregion <Script/>
     }

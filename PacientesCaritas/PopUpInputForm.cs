@@ -39,6 +39,7 @@ namespace PacientesCaritas
             this.TitleLBL.Text = title_text;
             this.ContentTextBox.Text = content;
             this.content = content;
+            this.ContentTextBox.Focus();
         }
 
         #region <FrontEnd Behavior>
@@ -84,6 +85,14 @@ namespace PacientesCaritas
         private void ContentTextBox_TextChanged(object sender, EventArgs e)
         {
             this.content = this.ContentTextBox.Text;
+        }
+
+        private void ContentTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyData == Keys.Enter)
+            {
+                this.Close();
+            }
         }
 
         #endregion <FrontEnd Behavior/>
