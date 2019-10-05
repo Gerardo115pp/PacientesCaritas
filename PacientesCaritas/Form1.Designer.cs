@@ -46,6 +46,9 @@
             this.PaiasBTN = new System.Windows.Forms.Button();
             this.InterrogatorioBTN = new System.Windows.Forms.Button();
             this.APPNPGroupBox = new System.Windows.Forms.GroupBox();
+            this.AddicionesCB = new System.Windows.Forms.CheckBox();
+            this.AlcholismoCB = new System.Windows.Forms.CheckBox();
+            this.TabaquismoCB = new System.Windows.Forms.CheckBox();
             this.EFGroupBox = new System.Windows.Forms.GroupBox();
             this.FRTextBox = new System.Windows.Forms.TextBox();
             this.FRLBL = new System.Windows.Forms.Label();
@@ -64,14 +67,11 @@
             this.TelLBL = new System.Windows.Forms.Label();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
             this.AddressLBL = new System.Windows.Forms.Label();
-            this.AgeTextbox = new System.Windows.Forms.TextBox();
             this.AgeLabel = new System.Windows.Forms.Label();
             this.NamePacientTextBox = new System.Windows.Forms.TextBox();
             this.NamePacientLbl = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.TabaquismoCB = new System.Windows.Forms.CheckBox();
-            this.AlcholismoCB = new System.Windows.Forms.CheckBox();
-            this.AddicionesCB = new System.Windows.Forms.CheckBox();
+            this.AgeTextbox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.ControlsContainer.SuspendLayout();
             this.TabsContainer.SuspendLayout();
@@ -370,6 +370,36 @@
             this.APPNPGroupBox.TabStop = false;
             this.APPNPGroupBox.Text = "Antecedentes personales patologicos y no patologicos";
             // 
+            // AddicionesCB
+            // 
+            this.AddicionesCB.AutoSize = true;
+            this.AddicionesCB.Location = new System.Drawing.Point(442, 60);
+            this.AddicionesCB.Name = "AddicionesCB";
+            this.AddicionesCB.Size = new System.Drawing.Size(140, 36);
+            this.AddicionesCB.TabIndex = 15;
+            this.AddicionesCB.Text = "Adiciones";
+            this.AddicionesCB.UseVisualStyleBackColor = true;
+            // 
+            // AlcholismoCB
+            // 
+            this.AlcholismoCB.AutoSize = true;
+            this.AlcholismoCB.Location = new System.Drawing.Point(274, 60);
+            this.AlcholismoCB.Name = "AlcholismoCB";
+            this.AlcholismoCB.Size = new System.Drawing.Size(154, 36);
+            this.AlcholismoCB.TabIndex = 14;
+            this.AlcholismoCB.Text = "Alcholismo";
+            this.AlcholismoCB.UseVisualStyleBackColor = true;
+            // 
+            // TabaquismoCB
+            // 
+            this.TabaquismoCB.AutoSize = true;
+            this.TabaquismoCB.Location = new System.Drawing.Point(95, 60);
+            this.TabaquismoCB.Name = "TabaquismoCB";
+            this.TabaquismoCB.Size = new System.Drawing.Size(164, 36);
+            this.TabaquismoCB.TabIndex = 13;
+            this.TabaquismoCB.Text = "Tabaquismo";
+            this.TabaquismoCB.UseVisualStyleBackColor = true;
+            // 
             // EFGroupBox
             // 
             this.EFGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(210)))), ((int)(((byte)(250)))));
@@ -564,14 +594,6 @@
             this.AddressLBL.TabIndex = 4;
             this.AddressLBL.Text = "Domicilio";
             // 
-            // AgeTextbox
-            // 
-            this.AgeTextbox.Location = new System.Drawing.Point(279, 102);
-            this.AgeTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AgeTextbox.Name = "AgeTextbox";
-            this.AgeTextbox.Size = new System.Drawing.Size(284, 38);
-            this.AgeTextbox.TabIndex = 3;
-            // 
             // AgeLabel
             // 
             this.AgeLabel.AutoSize = true;
@@ -612,35 +634,13 @@
             this.tabPage2.Text = "Busqueda";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // TabaquismoCB
+            // AgeTextbox
             // 
-            this.TabaquismoCB.AutoSize = true;
-            this.TabaquismoCB.Location = new System.Drawing.Point(95, 60);
-            this.TabaquismoCB.Name = "TabaquismoCB";
-            this.TabaquismoCB.Size = new System.Drawing.Size(164, 36);
-            this.TabaquismoCB.TabIndex = 13;
-            this.TabaquismoCB.Text = "Tabaquismo";
-            this.TabaquismoCB.UseVisualStyleBackColor = true;
-            // 
-            // AlcholismoCB
-            // 
-            this.AlcholismoCB.AutoSize = true;
-            this.AlcholismoCB.Location = new System.Drawing.Point(274, 60);
-            this.AlcholismoCB.Name = "AlcholismoCB";
-            this.AlcholismoCB.Size = new System.Drawing.Size(154, 36);
-            this.AlcholismoCB.TabIndex = 14;
-            this.AlcholismoCB.Text = "Alcholismo";
-            this.AlcholismoCB.UseVisualStyleBackColor = true;
-            // 
-            // AddicionesCB
-            // 
-            this.AddicionesCB.AutoSize = true;
-            this.AddicionesCB.Location = new System.Drawing.Point(442, 60);
-            this.AddicionesCB.Name = "AddicionesCB";
-            this.AddicionesCB.Size = new System.Drawing.Size(140, 36);
-            this.AddicionesCB.TabIndex = 15;
-            this.AddicionesCB.Text = "Adiciones";
-            this.AddicionesCB.UseVisualStyleBackColor = true;
+            this.AgeTextbox.Location = new System.Drawing.Point(279, 102);
+            this.AgeTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AgeTextbox.Name = "AgeTextbox";
+            this.AgeTextbox.Size = new System.Drawing.Size(284, 38);
+            this.AgeTextbox.TabIndex = 3;
             // 
             // Form1
             // 
@@ -679,7 +679,6 @@
         private System.Windows.Forms.GroupBox DatosPersonalesGroupBox;
         private System.Windows.Forms.Label NamePacientLbl;
         private System.Windows.Forms.TextBox NamePacientTextBox;
-        private System.Windows.Forms.TextBox AgeTextbox;
         private System.Windows.Forms.Label AgeLabel;
         private System.Windows.Forms.TextBox AddressTextBox;
         private System.Windows.Forms.Label AddressLBL;
@@ -715,6 +714,7 @@
         private System.Windows.Forms.CheckBox AddicionesCB;
         private System.Windows.Forms.CheckBox AlcholismoCB;
         private System.Windows.Forms.CheckBox TabaquismoCB;
+        private System.Windows.Forms.TextBox AgeTextbox;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 //using System.Collections;
 using System.ComponentModel;
@@ -155,10 +156,15 @@ namespace PacientesCaritas
 
         private void compileDatatoJson(Object sender, EventArgs e)
         {
+            if(!Directory.Exists("./pacientes") )
+            {
+                Directory.CreateDirectory("./Pacientes");
+            }
             Dictionary<string, string> data = this.getAllFieldValues();
             string filename = Form1.sha1(data["nombre"]);
             string Datos = JsonConvert.SerializeObject(data);
-            File.WriteAllText($"{filename}.json",Datos);
+            File.WriteAllText($"./Pacientes/{filename}.json",Datos);
+            this.insertIntoDatabase(filename,data);
             this.clearFields();
         }
 
@@ -194,6 +200,80 @@ namespace PacientesCaritas
             this.popups_values = new Dictionary<string, string>();
         }
 
+        private void insertIntoDatabase(string uuid, Dictionary<string,string> data)
+        {
+            if (!File.Exists("./connection_string.txt"))
+            {
+                MessageBox.Show("No se puede insertar en la base de datos ya que el archivo 'connection_string' no esta presente");
+                return;
+            }
+            string connection_string = File.ReadAllText("./connection_string.txt");
+            MySqlConnection conn = new MySqlConnection(connection_string);
+            try
+            {
+                conn.Open();
+                if(!this.insertPacient(conn, uuid, data))
+                {
+                    return;
+                }
+                this.inserConsulta(conn, uuid, data);
+
+
+            }
+            catch(Exception e)
+            {
+                //MessageBox.Show($"cant connect to data base using connection_string '{connection_string}' ");
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void inserConsulta(MySqlConnection conn, string uuid, Dictionary<string, string> data)
+        {
+            MySqlCommand sql_query = conn.CreateCommand();
+            sql_query.CommandText = $"INSERT INTO consultas(id, pacient, pulse, temperature, ta, fr, fc, addiction, smoking, alcoholism, path_to_notes) VALUES (NULL, ?uuid, ?pulse, ?temp, ?ta, ?fr, ?fc, ?addic, ?smok, ?alc, ?path)";
+
+            sql_query.Parameters.Add("?uuid", MySqlDbType.VarChar).Value = uuid;
+            sql_query.Parameters.Add("?pulse", MySqlDbType.VarChar).Value = data["pulso"];
+            sql_query.Parameters.Add("?temp", MySqlDbType.VarChar).Value = data["temp"];
+            sql_query.Parameters.Add("?ta", MySqlDbType.VarChar).Value = data["T.A"];
+            sql_query.Parameters.Add("?fr", MySqlDbType.VarChar).Value = data["F.R"];
+            sql_query.Parameters.Add("?fc", MySqlDbType.VarChar).Value = data["F.C"];
+            sql_query.Parameters.Add("?addic", MySqlDbType.Binary).Value = data["adicciones"];
+            sql_query.Parameters.Add("?smok", MySqlDbType.Binary).Value = data["tabaquismo"];
+            sql_query.Parameters.Add("?alc", MySqlDbType.Binary).Value = data["alcoholismo"];
+            sql_query.Parameters.Add("?path", MySqlDbType.Text).Value = $"./Pacientes/{uuid}.json";
+
+            sql_query.ExecuteNonQuery();
+        }
+
+        private bool insertPacient(MySqlConnection conn, string uuid, Dictionary<string,string> data)
+        {
+            try
+            {
+                MySqlCommand sql_query = conn.CreateCommand();
+                sql_query.CommandText = $"INSERT INTO pacientes(uuid, name, address, age, phone, gender) VALUES (?uuid, ?name, ?address, ?age, ?phone, ?gender)";
+
+                sql_query.Parameters.Add("?uuid", MySqlDbType.VarChar).Value = uuid;
+                sql_query.Parameters.Add("?name", MySqlDbType.VarChar).Value = data["nombre"];
+                sql_query.Parameters.Add("?address", MySqlDbType.VarChar).Value = data["domicilio"];
+                sql_query.Parameters.Add("?age", MySqlDbType.Int16).Value = Convert.ToInt16(data["edad"]);
+                sql_query.Parameters.Add("?phone", MySqlDbType.VarChar).Value = data["telephone"];
+                sql_query.Parameters.Add("?gender", MySqlDbType.VarChar).Value = (data["genero"] == "Hombre") ? 'H' : 'M';
+
+                sql_query.ExecuteNonQuery();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            return true;
+        }
 
         #endregion <Script/>
     }

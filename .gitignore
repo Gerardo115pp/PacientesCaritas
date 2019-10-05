@@ -353,3 +353,12 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/visualstudio
+
+# sql connection_query
+
+./PacientesCaritas/bin/Debug/connection_string.txt
+
+# Todo lo que es de pacientes
+
+./PacientesCaritas/bin/Debug/Pacientes
+
