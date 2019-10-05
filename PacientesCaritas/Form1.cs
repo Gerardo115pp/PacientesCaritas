@@ -142,9 +142,9 @@ namespace PacientesCaritas
             data_to_return["T.A"] = this.TATextBox.Text;
             data_to_return["F.R"] = this.FRTextBox.Text;
             data_to_return["F.C"] = this.FCTextBox.Text;
-            data_to_return["tabaquismo"] = this.TabaquismoTextBox.Text;
-            data_to_return["alcoholismo"] = this.AlcoholismoTextBox.Text;
-            data_to_return["adicciones"] = this.AdiccionesTextBox.Text;
+            data_to_return["tabaquismo"] = this.TabaquismoCB.Checked ? "1" : "0";
+            data_to_return["alcoholismo"] = this.AlcholismoCB.Checked ? "1" : "0";
+            data_to_return["adicciones"] = this.AddicionesCB.Checked ? "1" : "0";
 
             foreach(string key in this.popups_values.Keys)
             {
@@ -186,9 +186,9 @@ namespace PacientesCaritas
             this.TATextBox.Text = "";
             this.FCTextBox.Text = "";
             this.FRTextBox.Text = "";
-            this.TabaquismoTextBox.Text = "";
-            this.AlcoholismoTextBox.Text = "";
-            this.AdiccionesTextBox.Text = "";
+            this.TabaquismoCB.Checked = false;
+            this.AlcholismoCB.Checked = false;
+            this.AddicionesCB.Checked = false;
             this.resetBTNsColor();
 
             this.popups_values = new Dictionary<string, string>();

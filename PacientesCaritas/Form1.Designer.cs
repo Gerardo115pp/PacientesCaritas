@@ -46,12 +46,6 @@
             this.PaiasBTN = new System.Windows.Forms.Button();
             this.InterrogatorioBTN = new System.Windows.Forms.Button();
             this.APPNPGroupBox = new System.Windows.Forms.GroupBox();
-            this.AlcoholismoTextBox = new System.Windows.Forms.TextBox();
-            this.AlcoholismoLBL = new System.Windows.Forms.Label();
-            this.AdiccionesTextBox = new System.Windows.Forms.TextBox();
-            this.AdiccionesLBL = new System.Windows.Forms.Label();
-            this.TabaquismoTextBox = new System.Windows.Forms.TextBox();
-            this.TabaquismoLBL = new System.Windows.Forms.Label();
             this.EFGroupBox = new System.Windows.Forms.GroupBox();
             this.FRTextBox = new System.Windows.Forms.TextBox();
             this.FRLBL = new System.Windows.Forms.Label();
@@ -75,6 +69,9 @@
             this.NamePacientTextBox = new System.Windows.Forms.TextBox();
             this.NamePacientLbl = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TabaquismoCB = new System.Windows.Forms.CheckBox();
+            this.AlcholismoCB = new System.Windows.Forms.CheckBox();
+            this.AddicionesCB = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.ControlsContainer.SuspendLayout();
             this.TabsContainer.SuspendLayout();
@@ -360,12 +357,9 @@
             // APPNPGroupBox
             // 
             this.APPNPGroupBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(210)))), ((int)(((byte)(250)))));
-            this.APPNPGroupBox.Controls.Add(this.AlcoholismoTextBox);
-            this.APPNPGroupBox.Controls.Add(this.AlcoholismoLBL);
-            this.APPNPGroupBox.Controls.Add(this.AdiccionesTextBox);
-            this.APPNPGroupBox.Controls.Add(this.AdiccionesLBL);
-            this.APPNPGroupBox.Controls.Add(this.TabaquismoTextBox);
-            this.APPNPGroupBox.Controls.Add(this.TabaquismoLBL);
+            this.APPNPGroupBox.Controls.Add(this.AddicionesCB);
+            this.APPNPGroupBox.Controls.Add(this.AlcholismoCB);
+            this.APPNPGroupBox.Controls.Add(this.TabaquismoCB);
             this.APPNPGroupBox.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.APPNPGroupBox.Location = new System.Drawing.Point(751, 202);
             this.APPNPGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -375,60 +369,6 @@
             this.APPNPGroupBox.TabIndex = 11;
             this.APPNPGroupBox.TabStop = false;
             this.APPNPGroupBox.Text = "Antecedentes personales patologicos y no patologicos";
-            // 
-            // AlcoholismoTextBox
-            // 
-            this.AlcoholismoTextBox.Location = new System.Drawing.Point(399, 57);
-            this.AlcoholismoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AlcoholismoTextBox.Name = "AlcoholismoTextBox";
-            this.AlcoholismoTextBox.Size = new System.Drawing.Size(87, 38);
-            this.AlcoholismoTextBox.TabIndex = 9;
-            // 
-            // AlcoholismoLBL
-            // 
-            this.AlcoholismoLBL.AutoSize = true;
-            this.AlcoholismoLBL.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlcoholismoLBL.Location = new System.Drawing.Point(272, 62);
-            this.AlcoholismoLBL.Name = "AlcoholismoLBL";
-            this.AlcoholismoLBL.Size = new System.Drawing.Size(121, 28);
-            this.AlcoholismoLBL.TabIndex = 8;
-            this.AlcoholismoLBL.Text = "Alcoholismo";
-            // 
-            // AdiccionesTextBox
-            // 
-            this.AdiccionesTextBox.Location = new System.Drawing.Point(621, 57);
-            this.AdiccionesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AdiccionesTextBox.Name = "AdiccionesTextBox";
-            this.AdiccionesTextBox.Size = new System.Drawing.Size(90, 38);
-            this.AdiccionesTextBox.TabIndex = 7;
-            // 
-            // AdiccionesLBL
-            // 
-            this.AdiccionesLBL.AutoSize = true;
-            this.AdiccionesLBL.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdiccionesLBL.Location = new System.Drawing.Point(509, 62);
-            this.AdiccionesLBL.Name = "AdiccionesLBL";
-            this.AdiccionesLBL.Size = new System.Drawing.Size(106, 28);
-            this.AdiccionesLBL.TabIndex = 6;
-            this.AdiccionesLBL.Text = "Adicciones";
-            // 
-            // TabaquismoTextBox
-            // 
-            this.TabaquismoTextBox.Location = new System.Drawing.Point(168, 57);
-            this.TabaquismoTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabaquismoTextBox.Name = "TabaquismoTextBox";
-            this.TabaquismoTextBox.Size = new System.Drawing.Size(87, 38);
-            this.TabaquismoTextBox.TabIndex = 5;
-            // 
-            // TabaquismoLBL
-            // 
-            this.TabaquismoLBL.AutoSize = true;
-            this.TabaquismoLBL.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TabaquismoLBL.Location = new System.Drawing.Point(45, 62);
-            this.TabaquismoLBL.Name = "TabaquismoLBL";
-            this.TabaquismoLBL.Size = new System.Drawing.Size(117, 28);
-            this.TabaquismoLBL.TabIndex = 4;
-            this.TabaquismoLBL.Text = "Tabaquismo";
             // 
             // EFGroupBox
             // 
@@ -672,6 +612,36 @@
             this.tabPage2.Text = "Busqueda";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // TabaquismoCB
+            // 
+            this.TabaquismoCB.AutoSize = true;
+            this.TabaquismoCB.Location = new System.Drawing.Point(95, 60);
+            this.TabaquismoCB.Name = "TabaquismoCB";
+            this.TabaquismoCB.Size = new System.Drawing.Size(164, 36);
+            this.TabaquismoCB.TabIndex = 13;
+            this.TabaquismoCB.Text = "Tabaquismo";
+            this.TabaquismoCB.UseVisualStyleBackColor = true;
+            // 
+            // AlcholismoCB
+            // 
+            this.AlcholismoCB.AutoSize = true;
+            this.AlcholismoCB.Location = new System.Drawing.Point(274, 60);
+            this.AlcholismoCB.Name = "AlcholismoCB";
+            this.AlcholismoCB.Size = new System.Drawing.Size(154, 36);
+            this.AlcholismoCB.TabIndex = 14;
+            this.AlcholismoCB.Text = "Alcholismo";
+            this.AlcholismoCB.UseVisualStyleBackColor = true;
+            // 
+            // AddicionesCB
+            // 
+            this.AddicionesCB.AutoSize = true;
+            this.AddicionesCB.Location = new System.Drawing.Point(442, 60);
+            this.AddicionesCB.Name = "AddicionesCB";
+            this.AddicionesCB.Size = new System.Drawing.Size(140, 36);
+            this.AddicionesCB.TabIndex = 15;
+            this.AddicionesCB.Text = "Adiciones";
+            this.AddicionesCB.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -729,12 +699,6 @@
         private System.Windows.Forms.TextBox FRTextBox;
         private System.Windows.Forms.Label FRLBL;
         private System.Windows.Forms.GroupBox APPNPGroupBox;
-        private System.Windows.Forms.TextBox AlcoholismoTextBox;
-        private System.Windows.Forms.Label AlcoholismoLBL;
-        private System.Windows.Forms.TextBox AdiccionesTextBox;
-        private System.Windows.Forms.Label AdiccionesLBL;
-        private System.Windows.Forms.TextBox TabaquismoTextBox;
-        private System.Windows.Forms.Label TabaquismoLBL;
         private System.Windows.Forms.Panel PopUpOptionsContainer;
         private System.Windows.Forms.Button NotasBTN;
         private System.Windows.Forms.Button DiagnosticoBTN;
@@ -748,6 +712,9 @@
         private System.Windows.Forms.Panel ControlsContainer;
         private System.Windows.Forms.Button MinimizeBTN;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox AddicionesCB;
+        private System.Windows.Forms.CheckBox AlcholismoCB;
+        private System.Windows.Forms.CheckBox TabaquismoCB;
     }
 }
 
